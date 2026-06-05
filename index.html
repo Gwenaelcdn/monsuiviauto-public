@@ -228,6 +228,32 @@
       display: block;
     }
 
+    /* Carousel arrows */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 15;
+      background: rgba(0,0,0,.42);
+      backdrop-filter: blur(4px);
+      border: none;
+      color: #fff;
+      width: 22px;
+      height: 38px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 17px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .18s;
+      padding: 0;
+    }
+    .carousel-arrow:hover { background: rgba(0,0,0,.65); }
+    .carousel-prev { left: 7px; }
+    .carousel-next { right: 7px; }
+
     /* Dots */
     .dots {
       position: absolute;
@@ -303,6 +329,10 @@
           <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
           SP95 · Diesel · E10 · E85 · GPL
         </div>
+        <div class="pill">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          10 000+ stations en France toutes les 10 min
+        </div>
       </div>
 
       <div class="cta-group">
@@ -327,6 +357,8 @@
             <img src="screens/screen3.png" alt="Carte stations" />
           </div>
         </div>
+        <button class="carousel-arrow carousel-prev" id="prev" aria-label="Précédent">&#8249;</button>
+        <button class="carousel-arrow carousel-next" id="next" aria-label="Suivant">&#8250;</button>
         <div class="dots" id="dots">
           <div class="dot active"></div>
           <div class="dot"></div>
@@ -342,6 +374,7 @@
   const slides = document.querySelectorAll('.carousel-slide');
   const dots = document.querySelectorAll('.dot');
   let current = 0;
+  let timer;
 
   function goTo(n) {
     slides[current].classList.remove('active');
@@ -351,9 +384,16 @@
     dots[current].classList.add('active');
   }
 
-  setInterval(() => goTo(current + 1), 3000);
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 3000);
+  }
 
-  document.getElementById('carousel').addEventListener('click', () => goTo(current + 1));
+  resetTimer();
+
+  document.getElementById('prev').addEventListener('click', (e) => { e.stopPropagation(); goTo(current - 1); resetTimer(); });
+  document.getElementById('next').addEventListener('click', (e) => { e.stopPropagation(); goTo(current + 1); resetTimer(); });
+  document.getElementById('carousel').addEventListener('click', () => { goTo(current + 1); resetTimer(); });
 </script>
 </body>
 </html>
