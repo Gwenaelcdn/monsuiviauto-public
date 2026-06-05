@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon Suivi Auto — Entretien voiture & prix carburant</title>
+  <meta name="description" content="Gérez l'entretien de votre voiture et trouvez l'essence la moins chère autour de vous. Rappels CT, assurance, vidange — et les prix carburant en temps réel." />
+  <meta name="keywords" content="suivi entretien voiture, prix carburant, essence pas chère, rappel contrôle technique, carnet entretien numérique, app voiture android" />
+
+  <!-- Open Graph (partage réseaux sociaux) -->
+  <meta property="og:title" content="Mon Suivi Auto" />
+  <meta property="og:description" content="Gérez l'entretien de votre voiture et trouvez l'essence la moins chère autour de vous." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://monsuiviauto.app" />
+  <meta property="og:image" content="https://monsuiviauto.app/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mon Suivi Auto" />
+  <meta name="twitter:description" content="Gérez l'entretien de votre voiture et trouvez l'essence la moins chère autour de vous." />
+
+  <!-- App Links Android -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #1A3C5E;
+      --orange:  #D4610B;
+      --light:   #F5F7FA;
+      --text:    #1a1a2e;
+      --muted:   #6b7280;
+      --radius:  14px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(145deg, var(--blue) 0%, #0f2540 100%);
+      color: #fff;
+      padding: 64px 24px 80px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 99px;
+      font-size: 13px;
+      letter-spacing: .04em;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 640px;
+      margin: 0 auto 16px;
+    }
+
+    .hero h1 span { color: #F97316; }
+
+    .hero p {
+      font-size: clamp(15px, 2.5vw, 18px);
+      color: rgba(255,255,255,.75);
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    .btn-store {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--orange);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      transition: opacity .15s, transform .15s;
+      box-shadow: 0 4px 20px rgba(212,97,11,.4);
+    }
+    .btn-store:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-store svg { flex-shrink: 0; }
+
+    .hero-note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 72px 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.04);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .card h2 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--blue);
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CTA FINAL ── */
+    .cta {
+      background: linear-gradient(135deg, #0f2540, var(--blue));
+      color: #fff;
+      text-align: center;
+      padding: 64px 24px;
+    }
+
+    .cta h2 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,.65);
+      margin-bottom: 32px;
+      font-size: 16px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Gratuit sur Android</div>
+    <h1>Votre voiture,<br><span>enfin sous contrôle</span></h1>
+    <p>Suivez l'entretien de votre véhicule et trouvez l'essence la moins chère autour de vous — en un coup d'œil.</p>
+    <a class="btn-store" href="https://play.google.com/store/apps/details?id=com.monsuiviauto.com" target="_blank" rel="noopener">
+      <!-- Play Store icon -->
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.18 23.76c.3.17.64.22.98.14l11.46-11.46L12 9.8 3.18 23.76zM21.4 10.6l-2.9-1.67-3.13 3.13 3.13 3.13 2.93-1.69c.84-.48.84-1.42-.03-1.9zM2.01 1.07C1.7 1.43 1.5 1.97 1.5 2.67v18.64c0 .7.2 1.24.52 1.6L2.14 23 13.6 11.54v-.28L2.14 1.07l-.13.0z"/>
+      </svg>
+      Télécharger sur Google Play
+    </a>
+    <p class="hero-note">Android · Gratuit · Sans pub</p>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="card">
+      <div class="card-icon">⛽</div>
+      <h2>Prix carburant en temps réel</h2>
+      <p>Comparez les stations autour de vous et trouvez le SP95, Diesel ou E10 le moins cher. Alertes automatiques quand le prix de vos stations favorites baisse.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔧</div>
+      <h2>Carnet d'entretien numérique</h2>
+      <p>Vidange, distribution, liquide de frein… Gardez un historique complet et recevez des rappels avant chaque échéance.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h2>CT & assurance</h2>
+      <p>Ne ratez plus jamais votre contrôle technique ou le renouvellement de votre assurance. Rappels à J-30, J-7 et J-0.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📊</div>
+      <h2>Widget écran d'accueil</h2>
+      <p>Le prix de l'essence la moins chère visible directement sur votre écran d'accueil, sans ouvrir l'app.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🚗</div>
+      <h2>Multi-véhicules</h2>
+      <p>Gérez toute la famille depuis un seul compte. Chaque véhicule a son propre suivi et ses propres rappels.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔔</div>
+      <h2>Alertes prix cible</h2>
+      <p>Définissez un prix cible pour votre station favorite. Vous êtes notifié dès que le prix passe en dessous.</p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta">
+    <h2>Prêt à faire des économies ?</h2>
+    <p>Gratuit, sans pub, sans abonnement.</p>
+    <a class="btn-store" href="https://play.google.com/store/apps/details?id=com.monsuiviauto.com" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.18 23.76c.3.17.64.22.98.14l11.46-11.46L12 9.8 3.18 23.76zM21.4 10.6l-2.9-1.67-3.13 3.13 3.13 3.13 2.93-1.69c.84-.48.84-1.42-.03-1.9zM2.01 1.07C1.7 1.43 1.5 1.97 1.5 2.67v18.64c0 .7.2 1.24.52 1.6L2.14 23 13.6 11.54v-.28L2.14 1.07l-.13.0z"/>
+      </svg>
+      Télécharger sur Google Play
+    </a>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Mon Suivi Auto &nbsp;·&nbsp; <a href="mailto:contact@monsuiviauto.app">Contact</a></p>
+  </footer>
+
+</body>
+</html>
