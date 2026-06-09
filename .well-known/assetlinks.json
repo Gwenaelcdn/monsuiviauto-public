@@ -1,11 +1,14 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.monsuiviauto.com",
       "sha256_cert_fingerprints": [
-        "REMPLACER_PAR_TON_SHA256"
+        "7F:33:A9:E1:BD:DC:D6:EF:48:C1:90:6E:34:D3:54:72:70:24:8B:8E:2E:4F:30:87:1C:9C:A8:9F:AB:55:D2:39"
       ]
     }
   }
